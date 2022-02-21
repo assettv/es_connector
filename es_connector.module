@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * @file
+ * Elasticsearch Connector module hooks.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\es_connector\ClusterInterface;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_entity_operation().
+ */
+function es_connector_entity_operation(EntityInterface $entity) {
+  if ($entity instanceof ClusterInterface) {
+    $operations = [];
+    $operations['list_indices'] = [
+      'title' => t('List Indices'),
+      'url' => Url::fromRoute('entity.es_cluster.indices_list', [
+        "es_cluster" => $entity->id(),
+      ]),
+      'weight' => 150,
+    ];
+    return $operations;
+  }
+}

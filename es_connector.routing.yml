@@ -1,0 +1,39 @@
+entity.es_cluster.collection:
+  path: '/admin/config/search/es_clusters'
+  defaults:
+    _entity_list: 'es_cluster'
+    _title: 'ES Clusters'
+  requirements:
+    _permission: 'administer site configuration'
+
+entity.es_cluster.add_form:
+  path: '/admin/config/search/es_clusters/add'
+  defaults:
+    _entity_form: 'es_cluster.add'
+    _title: 'Connect to Elasticsearch Cluster'
+  requirements:
+    _permission: 'administer site configuration'
+
+entity.es_cluster.edit_form:
+  path: '/admin/config/search/es_clusters/{es_cluster}/edit'
+  defaults:
+    _entity_form: 'es_cluster.edit'
+    _title: 'Edit Elasticsearch Cluster'
+  requirements:
+    _permission: 'administer site configuration'
+
+entity.es_cluster.delete_form:
+  path: '/admin/config/search/es_clusters/{es_cluster}/delete'
+  defaults:
+    _entity_form: 'es_cluster.delete'
+    _title: 'Delete Elasticsearch Cluster'
+  requirements:
+    _permission: 'administer site configuration'
+
+entity.es_cluster.indices_list:
+  path: '/admin/config/search/es_clusters/{es_cluster}/indices'
+  defaults:
+    _controller: '\Drupal\es_connector\Controller\ClusterIndices::list'
+    _title_callback: '\Drupal\es_connector\Controller\ClusterIndices::pageTitle'
+  requirements:
+    _permission: 'administer site configuration'

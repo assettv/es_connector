@@ -1,0 +1,5 @@
+entity.es_cluster.add_form:
+  route_name: 'entity.es_cluster.add_form'
+  title: 'Connect to Cluster'
+  appears_on:
+    - entity.es_cluster.collection

@@ -1,0 +1,22 @@
+es_connector.es_cluster.*:
+  type: config_entity
+  label: 'ES Cluster config'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    url:
+      type: string
+      label: 'URL'
+    username:
+      type: string
+      label: 'Username'
+    password:
+      type: string
+      label: 'Password'
+    active:
+      type: string
+      label: 'Active'

@@ -1,0 +1,4 @@
+services:
+  es_connector.client_manager:
+    class: Drupal\es_connector\ClientManager
+    arguments: []

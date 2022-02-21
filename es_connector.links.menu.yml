@@ -1,0 +1,5 @@
+entity.es_cluster.collection:
+  title: 'Elasticsearch Clusters'
+  parent: system.admin_config_search
+  description: 'Configure connections to Elasticsearch Clusters'
+  route_name: entity.es_cluster.collection
