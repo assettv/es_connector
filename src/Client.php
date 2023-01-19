@@ -26,7 +26,6 @@ class Client extends ElasticsearchClient {
    * {@inheritdoc}
    */
   public function isClusterOk() {
-    \Drupal::logger('es_connector')->debug('running');
     try {
       $health = $this->cluster()->health();
       return in_array($health['status'], ['green', 'yellow']);
