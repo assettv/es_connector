@@ -3,6 +3,7 @@
 namespace Drupal\es_connector;
 
 use Elasticsearch\Client as ElasticsearchClient;
+use Elasticsearch\Common\Exceptions\ElasticsearchException;
 
 /**
  * Class Client.
@@ -19,6 +20,20 @@ class Client extends ElasticsearchClient {
   public function search(array $params = []): SearchResponse {
     $results = parent::search($params);
     return new SearchResponse($results);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function isClusterOk() {
+    \Drupal::logger('es_connector')->debug('running');
+    try {
+      $health = $this->cluster()->health();
+      return in_array($health['status'], ['green', 'yellow']);
+    }
+    catch (ElasticsearchException $e) {
+      return FALSE;
+    }
   }
 
 }
