@@ -21,4 +21,12 @@ class Client extends ElasticsearchClient {
     return new SearchResponse($results);
   }
 
+  /**
+   * {@inheritdoc}
+   */
+  public function isClusterOk() {
+    $health = $this->cluster()->health();
+    return in_array($health['status'], ['green', 'yellow']);
+  }
+
 }
