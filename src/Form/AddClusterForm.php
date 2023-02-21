@@ -109,6 +109,7 @@ class AddClusterForm extends EntityForm {
    */
   public function exist($id) {
     $entity = $this->entityTypeManager->getStorage('es_cluster')->getQuery()
+      ->accessCheck()
       ->condition('id', $id)
       ->execute();
     return (bool) $entity;
