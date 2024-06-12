@@ -32,7 +32,7 @@ class ClientManagerTest extends UnitTestCase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
 
     $entity_storage = $this->createMock(EntityStorageInterface::class);
