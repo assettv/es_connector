@@ -13,6 +13,6 @@
         }
       ],
     "require": {
-        "elasticsearch/elasticsearch": "^7.1.1"
+        "elasticsearch/elasticsearch": "^7.11"
     }
 }
