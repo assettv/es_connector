@@ -1,0 +1,31 @@
+name: Bump Version and Create Release
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  bump-and-release:
+    name: Bump version and create release
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Bump Version and Push Tag
+        id: tag
+        uses: anothrNick/github-tag-action@v1
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          WITH_V: true
+          DEFAULT_BUMP: patch
+
+      - name: Create Release
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: ${{ steps.tag.outputs.tag}}
+          prerelease: false
