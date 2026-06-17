@@ -2,5 +2,5 @@ name: ES Connector
 description: A better Elasticsearch connector!
 package: Custom
 type: module
-core_version_requirement: "^9.4 || ^10"
+core_version_requirement: "^10 || ^11"
 configure: entity.es_cluster.collection

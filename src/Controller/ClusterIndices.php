@@ -9,6 +9,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\Core\Logger\LoggerChannelInterface;
+use Drupal\Core\StringTranslation\ByteSizeMarkup;
 
 /**
  * Controller Class ClusterIndices.
@@ -70,7 +71,7 @@ class ClusterIndices extends ControllerBase implements ContainerInjectionInterfa
         $rows[] = [
           ['data' => $index_name],
           ['data' => $index_info['total']['docs']['count']],
-          ['data' => format_size($index_info['total']['store']['size_in_bytes'])],
+          ['data' => ByteSizeMarkup::create($index_info['total']['store']['size_in_bytes'])],
         ];
       }
     }

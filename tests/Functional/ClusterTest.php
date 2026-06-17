@@ -17,7 +17,7 @@ class ClusterTest extends BrowserTestBase {
    *
    * @var array
    */
-  public static $modules = ['es_connector'];
+  protected static $modules = ['es_connector'];
 
   /**
    * A user with permission to administer site configuration.
